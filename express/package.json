@@ -16,7 +16,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "learning": "file:"
+    "learning": "file:",
+    "morgan": "^1.10.0",
+    "winston": "^3.14.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

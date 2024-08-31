@@ -71,7 +71,7 @@ app.put('/teas/:id',(req,res)=>{
 
 // delete tea
 app.delete('/teas/:id',(req,res)=>{
-    logger.info("A delete request is made to delete a tea with ID");
+    
     const t = tea.find(t =>t.id === parseInt(req.params.id))
     if(!t){
         return res.status(404).send("tea not found")

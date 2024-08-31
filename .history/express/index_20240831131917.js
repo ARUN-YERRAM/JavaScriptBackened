@@ -1,7 +1,7 @@
 // require('dotenv').config()
 import 'dotenv/config'
 import express from 'express';
-import logger from './logger.js';
+import logger from './logger';
 import morgan from 'morgan';
 
 const app = express();
@@ -11,29 +11,12 @@ app.use(express.json());
 
 const morganFormat = ":method :url :status :response-time ms";
 
-app.use(
-    morgan(morganFormat, {
-      stream: {
-        write: (message) => {
-          const logObject = {
-            method: message.split(" ")[0],
-            url: message.split(" ")[1],
-            status: message.split(" ")[2],
-            responseTime: message.split(" ")[3],
-          };
-          logger.info(JSON.stringify(logObject));
-        },
-      },
-    })
-  );
 
-  
 let tea = [];
 let Id = 1;
 
 // add a new tea
 app.post('/teas',(req,res)=>{
-    logger.info("A post request is made to add a new tea");
     const {name,price} = req.body
     const newTea = {id:Id++,name,price}
     tea.push(newTea)
@@ -42,13 +25,11 @@ app.post('/teas',(req,res)=>{
 
 //  get all tea
 app.get('/teas',(req,res) =>{
-    logger.info("A get request is made to get all tea");
     res.status(200).send(tea)
 })
 
 // get a new tea with ID  
 app.get('/teas/:id',(req,res)=>{
-    logger.info("A get request is made to get a tea with ID");
     const t = tea.find(t =>t.id === parseInt(req.params.id))
     if(!t){
         return res.status(404).send("tea not found")
@@ -58,7 +39,6 @@ app.get('/teas/:id',(req,res)=>{
 
 // update tea
 app.put('/teas/:id',(req,res)=>{
-    logger.info("A put request is made to update a tea with ID");
     const t = tea.find(t =>t.id === parseInt(req.params.id))
     if(!t){
         return res.status(404).send("tea not found")
@@ -71,7 +51,6 @@ app.put('/teas/:id',(req,res)=>{
 
 // delete tea
 app.delete('/teas/:id',(req,res)=>{
-    logger.info("A delete request is made to delete a tea with ID");
     const t = tea.find(t =>t.id === parseInt(req.params.id))
     if(!t){
         return res.status(404).send("tea not found")

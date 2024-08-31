@@ -48,7 +48,7 @@ app.get('/teas',(req,res) =>{
 
 // get a new tea with ID  
 app.get('/teas/:id',(req,res)=>{
-    logger.info("A get request is made to get a tea with ID");
+    
     const t = tea.find(t =>t.id === parseInt(req.params.id))
     if(!t){
         return res.status(404).send("tea not found")
@@ -58,7 +58,6 @@ app.get('/teas/:id',(req,res)=>{
 
 // update tea
 app.put('/teas/:id',(req,res)=>{
-    logger.info("A put request is made to update a tea with ID");
     const t = tea.find(t =>t.id === parseInt(req.params.id))
     if(!t){
         return res.status(404).send("tea not found")
@@ -71,7 +70,6 @@ app.put('/teas/:id',(req,res)=>{
 
 // delete tea
 app.delete('/teas/:id',(req,res)=>{
-    logger.info("A delete request is made to delete a tea with ID");
     const t = tea.find(t =>t.id === parseInt(req.params.id))
     if(!t){
         return res.status(404).send("tea not found")
