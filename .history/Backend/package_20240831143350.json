@@ -1,0 +1,20 @@
+{
+  "name": "bcknd",
+  "version": "1.0.0",
+  "description": "learn",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Backend",
+    "nodejs",
+    
+  ],
+  "author": "Arun Yerram",
+  "license": "ISC",
+  "dependencies": {
+    "bcknd": "file:"
+  }
+}

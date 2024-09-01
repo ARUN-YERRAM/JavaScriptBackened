@@ -1,0 +1,27 @@
+{
+  "name": "bcknd",
+  "version": "1.0.0",
+  "description": "learn",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" :"node src/index.js",
+    "dev":"nodemon src/index.js"
+  },
+  "keywords": [
+    "Backend",
+    "nodejs",
+    "express",
+    "mongoose"
+  ],
+  "author": "Arun Yerram",
+  "license": "ISC",
+  "dependencies": {
+    "bcknd": "file:"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3"
+  }
+}
